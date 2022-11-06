@@ -7,7 +7,8 @@ function StartScreen({startGame, handleFormChange, questionsNumber, questionsDif
                 <fieldset>
                     <label htmlFor="questionNumber">Select number of questions</label>
                     <select name="questionNumber" id="questionNumber" onChange={handleFormChange} value={questionsNumber}>
-                        <option value="5" selected>5</option>
+                        <option value="">Choose...</option>
+                        <option value="5">5</option>
                         <option value="10">10</option>
                         <option value="15">15</option>
                         <option value="20">20</option>
@@ -18,8 +19,9 @@ function StartScreen({startGame, handleFormChange, questionsNumber, questionsDif
                 <fieldset>
                     <label htmlFor="questionDifficulty">Select difficulty</label>
                     <select name="questionDifficulty" id="questionDifficulty" onChange={handleFormChange} value={questionsDifficulty}>
+                        <option value="">Choose...</option>
                         <option value="easy">Easy</option>
-                        <option value="medium" selected>Medium</option>
+                        <option value="medium">Medium</option>
                         <option value="hard">Hard</option>
                     </select>
                 </fieldset>

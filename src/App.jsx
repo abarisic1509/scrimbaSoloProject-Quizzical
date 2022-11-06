@@ -15,6 +15,7 @@ function App() {
   const [questionData, setQuestionData] = React.useState([])
   const [score, setScore] = React.useState(0)
   const [formData, setFormData] = React.useState({})
+  const [userScore, setUserScore] = React.useState(JSON.parse(localStorage.getItem('userScore')) || 0)
 
   useEffect(() => {
     setIsLoading(true)
@@ -30,10 +31,28 @@ function App() {
           }
         ))
         setQuestionData(customQData)
-          setIsLoading(false)
+        setIsLoading(false)
       })
     
   }, [gameCount])
+
+  useEffect(()=>{
+    let totalScore = 0
+    for (let i=0; i < questionData.length; i++){
+      let answerSet = questionData[i].answers
+      let thisScore = answerSet.some((answer)=>answer.isCorrect && answer.isChosen) ? 1 : 0
+      totalScore = totalScore + thisScore
+    }
+    setScore(totalScore)
+  },[questionData])
+
+  useEffect(() => {
+    localStorage.setItem('userScore', JSON.stringify(userScore))
+  }, [userScore])
+
+  useEffect(() => {
+    setUserScore(prev => prev + score)
+  }, [isLocked])
 
   function compileAnswers(resultsData) {
     let allAnswers = []
@@ -50,7 +69,6 @@ function App() {
     setFormData(prev => ({...prev, [name]: value} 
       ))
   }
-  console.log(formData)
 
   function startGame(e) {
     e.preventDefault()
@@ -63,17 +81,6 @@ function App() {
       prevData.map(item=> question.id === item.id ? question : item )
     ))
   }
-
-  useEffect(()=>{
-    let totalScore = 0
-    for (let i=0; i < questionData.length; i++){
-      let answerSet = questionData[i].answers
-      //is any answer both correct and selected
-      let thisScore = answerSet.some((answer)=>answer.isCorrect && answer.isChosen) ? 1 : 0
-      totalScore = totalScore + thisScore
-    }
-    setScore(totalScore)
-  },[questionData])
 
   function checkAnswers(){
     setIsLocked(true)
@@ -88,7 +95,7 @@ function App() {
   
   return (
     <div className="App">
-      <Header />
+      <Header userScore={userScore}/>
       {isGameStarted 
         ? 
         <GameScreen 

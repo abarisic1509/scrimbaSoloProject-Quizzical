@@ -1,0 +1,48 @@
+*,*::before,*::after {box-sizing: border-box;}
+
+html, body, h1, h2, h3, h4, h5, h6, p {margin: 0;}
+
+html, body {padding: 0; overflow-x: hidden;}
+
+body {
+  display: flex;
+  place-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.17;
+  color: #1c1c1c;
+  background-color: #1c1c1c;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+}
+h1 {
+  font-size: 2rem;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-family: inherit;
+  cursor: pointer;
+}
+form, fieldset {
+  border: none;
+  display: grid;
+  gap: 1.5rem;
+}
+fieldset {gap: 1rem;}
+select {
+  cursor: pointer;
+  padding: .5rem;
+}
+
+// @media (prefers-color-scheme: light) {
+//   body {color: #F5F7FB;}
+//   #root {background-color: #293264;}
+// }

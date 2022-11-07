@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => {
     setIsLoading(true)
-    fetch(`https://opentdb.com/api.php?amount=${formData.questionNumber}&difficulty=${formData.questionDifficulty}`)
+    fetch(`https://opentdb.com/api.php?amount=${formData.questionNumber}&category=${formData.questionCategory}&difficulty=${formData.questionDifficulty}`)
       .then(res => res.json())
       .then(data => {
         let qData = data.results
@@ -73,7 +73,7 @@ function App() {
   function startGame(e) {
     e.preventDefault()
     setIsGameStarted(prev => !prev)
-    setGameCount(prevCount=>prevCount+1)
+    setGameCount(prev => prev + 1)
   }
 
   function updateQuestion(question){
@@ -110,7 +110,12 @@ function App() {
           isLoading={isLoading}
           /> 
         : 
-        <StartScreen startGame={startGame} handleFormChange={handleFormChange} questionsNumber={formData.questionNumber} questionsDifficulty={formData.questionDifficulty}/>}      
+        <StartScreen 
+          handleSubmit={startGame} 
+          handleFormChange={handleFormChange} 
+          questionsNumber={formData.questionNumber} 
+          questionsDifficulty={formData.questionDifficulty}
+          questionsCategory={formData.questionCategory}/>}      
     </div>
   )
 }

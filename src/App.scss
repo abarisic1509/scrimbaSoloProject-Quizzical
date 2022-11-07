@@ -99,6 +99,22 @@ main {
 
 .form-wrapper {
   display: grid;
+  select {
+    font-size: 1rem;
+    padding: .75rem 1rem;
+  }
+  select:invalid {
+    border-color: rgb(177, 2, 2);
+    & + .error-msg {display: block;}
+  }
+  .error-msg {
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .1px;
+    color: rgb(177, 2, 2);
+    margin-top: -8px;
+    display: none;
+  }
 }
 
 .game-screen,

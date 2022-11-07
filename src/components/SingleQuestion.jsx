@@ -28,23 +28,24 @@ function SingleQuestion({question, updateQuestion, isLocked}) {
         }
         return classList
     }
-    console.log(question.answers)
-    function getAnswerHtml() {
-        return(
-            question.answers.map(answer=> (
-                <button key={answer.id} className={getAnswerStyle(answer)} id={answer.id} onClick={()=>handleClick(answer.id)}>
-                    {answer.value}
-                </button>
-            ))
-        )
-    }
 
     return(
         <div className='question-container'>
             <h2>{question.question}</h2>
-            <div className='btn-wrapper'>
-                {getAnswerHtml()}
-            </div>
+            
+                <div className='btn-wrapper'>{
+                    question.answers.map(answer=> (
+                        <button 
+                            key={answer.id} 
+                            className={getAnswerStyle(answer)} 
+                            id={answer.id} 
+                            onClick={()=>handleClick(answer.id)}
+                            >
+                            {answer.value}
+                        </button>
+                    ))
+                }</div>
+            
         </div>
     )
 }

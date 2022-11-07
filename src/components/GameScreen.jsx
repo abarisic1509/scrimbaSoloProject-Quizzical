@@ -9,12 +9,24 @@ function GameScreen({questions, updateQuestion, isLocked, gameCount, checkAnswer
 
     return (
         <main className="game-screen">
-            {isLoading ? <Loader /> : <>{questions.map((q) => <SingleQuestion key={q.id} question={q} updateQuestion={updateQuestion} isLocked={isLocked} />)}
+            {isLoading ? 
+            <Loader /> : 
+            <>
+                {questions.map((q) => 
+                    <SingleQuestion 
+                        key={q.id} 
+                        question={q} 
+                        updateQuestion={updateQuestion} 
+                        isLocked={isLocked} />)}
             
-            <SubmitSection isLocked={isLocked} gameCount={gameCount} checkAnswers={checkAnswers} newGame={newGame} total={total} score={score}/></>}
-            {/* {questions.map((q) => <SingleQuestion key={q.id} question={q} updateQuestion={updateQuestion} isLocked={isLocked} />)}
-            
-            <SubmitSection isLocked={isLocked} gameCount={gameCount} checkAnswers={checkAnswers} newGame={newGame} total={total} score={score}/> */}
+                <SubmitSection 
+                    isLocked={isLocked} 
+                    gameCount={gameCount} 
+                    checkAnswers={checkAnswers} 
+                    newGame={newGame} 
+                    total={total} 
+                    score={score}/>
+            </>}
         </main>
     )
 }

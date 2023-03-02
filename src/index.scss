@@ -1,45 +1,72 @@
-*,*::before,*::after {box-sizing: border-box;}
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
 
-html, body, h1, h2, h3, h4, h5, h6, p {margin: 0;}
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+}
 
-html, body {padding: 0; overflow-x: hidden;}
+html,
+body {
+	padding: 0;
+	overflow-x: hidden;
+}
 
 body {
-  display: flex;
-  place-items: center;
-  min-width: 100vw;
-  min-height: 100vh;
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  line-height: 1.17;
-  color: #1c1c1c;
-  background-color: #1c1c1c;
+	display: flex;
+	place-items: center;
+	width: 100vw;
+	height: 100vh;
+	font-family: "Inter", sans-serif;
+	font-size: 1rem;
+	line-height: 1.17;
+	color: #1c1c1c;
+	background-color: #1c1c1c;
+	padding: 32px 16px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Karla', sans-serif;
-  font-weight: 700;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Karla", sans-serif;
+	font-weight: 700;
 }
 h1 {
-  font-size: 2rem;
+	font-size: 2rem;
 }
 
 button {
-  border: none;
-  outline: none;
-  background-color: transparent;
-  font-family: inherit;
-  cursor: pointer;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	font-family: inherit;
+	cursor: pointer;
 }
-form, fieldset {
-  border: none;
-  display: grid;
-  gap: 1.5rem;
+form,
+fieldset {
+	border: none;
+	display: grid;
+	gap: 1.5rem;
 }
-fieldset {gap: 1rem;}
+fieldset {
+	gap: 1rem;
+}
 select {
-  cursor: pointer;
-  padding: .5rem;
+	cursor: pointer;
+	padding: 0.5rem;
 }
 
 // @media (prefers-color-scheme: light) {

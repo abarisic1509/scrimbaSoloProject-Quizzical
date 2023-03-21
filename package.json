@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "formik": "^2.2.9",
     "html-entities": "^2.3.3",
     "nanoid": "^4.0.0",
     "react": "^18.2.0",

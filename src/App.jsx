@@ -18,6 +18,7 @@ function App() {
 		JSON.parse(localStorage.getItem("userScore")) || 0
 	);
 
+	//fetch data
 	useEffect(() => {
 		setIsLoading(true);
 		fetch(
@@ -36,6 +37,7 @@ function App() {
 			});
 	}, [gameCount]);
 
+	//update score
 	useEffect(() => {
 		let totalScore = 0;
 		for (let i = 0; i < questionData.length; i++) {
@@ -50,6 +52,7 @@ function App() {
 		setScore(totalScore);
 	}, [questionData]);
 
+	//fetch user score from local storage
 	useEffect(() => {
 		localStorage.setItem("userScore", JSON.stringify(userScore));
 	}, [userScore]);
@@ -78,9 +81,7 @@ function App() {
 	}
 
 	function handleFormChange(e) {
-		e.preventDefault();
 		const { name, value } = e.target;
-		e.target.closest("form").find("[required]").classList.add("invalid");
 		setFormData((prev) => ({ ...prev, [name]: value }));
 	}
 
